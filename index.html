@@ -4,43 +4,58 @@
 <meta charset="utf-8" />
 <title>JQuery Looping Through Results</title>
 <style>
+  .even {
+    background-color: #fff;
 
+  }
+  .odd {
+    background-color: #ccc;
+  }
 </style>
 </head>
 <body>
-  <h2 class="heading">Heading</h2>
+  <h2>Family Members</h2>
 
-<div class="content">
-  <p style="color: red;">Some content</p>
-  <p>Some more content</p>
-  <p>Some more content</p>
   <ul>
-    <li><a href="https://www.google.com" class="link-1">Item 1</a></li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-    <li>Item 4</li>
-    <li>Item 5</li>
-    <li>Item 6</li>
-    <li>Item 7</li>
-    <li>Item 8</li>
-    <li>Item 9</li>
-    <li>Item 10</li>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-    <li>Item 4</li>
-    <li>Item 5</li>
-    <li>Item 6</li>
-    <li>Item 7</li>
-    <li>Item 8</li>
-    <li>Item 9</li>
-    <li>Item 10</li>
+    <li>Al</li>
+    <li>Peggy</li>
+    <li>Kelly</li>
+    <li>Bud</li>
   </ul>
-  <p><a href="https://www.discogs.com" class="link-2">Some more content</a></p>
-  <p>Some more content</p>
-  <p>Some more content</p>
-  <p>Some more content</p>
-</div>
+<h2 class="heading">Heading</h2>
+  <div class="content">
+    <p style="color: red;">Some content</p>
+    <p>Some more content</p>
+    <p>Some more content</p>
+    <ul>
+      <li><a href="https://www.google.com" class="link-1">Item 1</a></li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+      <li>Item 7</li>
+      <li>Item 8</li>
+      <li>Item 9</li>
+      <li>Item 10</li>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+      <li>Item 7</li>
+      <li>Item 8</li>
+      <li>Item 9</li>
+      <li>Item 10</li>
+    </ul>
+    <p><a href="https://www.discogs.com" class="link-2">Some more content</a></p>
+    <p>Some more content</p>
+    <p>Some more content</p>
+    <p>Some more content</p>
+  </div>
+
+
 <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/JavaScript">
   var urls = [];
@@ -49,6 +64,17 @@
     urls[i] = $(this).attr('href');
   });
   console.log(urls.join(','));
+  (function($) {
+    $(document).ready(function() {
+      $("ul > li").each(function(i) {
+        if (i % 2 == 1) { // tests each item index to see if there is a remainder of 1 when it is divided by 0. If not, it is an even #, otherwise it's odd.
+          $(this).addClass("odd");
+        } else {
+          $(this).addClass("even");
+        }
+      });
+    });
+  })(jQuery);
 </script>
 </body>
 </html>
